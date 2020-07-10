@@ -1,0 +1,101 @@
+{
+  "name": "shrek-message-bot_twilio-nodejs",
+  "version": "0.1.0",
+  "description": "",
+  "main": "./lib/index.umd.js",
+  "module": "./lib/index.es.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "prebuild": "npm run decrypt",
+    "build": "tsc",
+    "bundle": "npm run build; rollup --config rollup.config.js",
+    "precommit": "npm run encrypt",
+    "commit": "git add --all; git-cz",
+    "clean": "rm -rf build/* dist/* docs/* lib/*",
+    "start": "node index.js",
+    "deploy": "",
+    "docs": "typedoc --excludeExternals --externalPattern \"node_modules/**\" --ignoreCompilerErrors --name TypeScript\\ Bootstrap --out docs/ --mode file --module umd --target ESNEXT --readme none src/*",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "local": "",
+    "encrypt": "node-crypto-cli -p $PASSWORD -a encrypt .env",
+    "decrypt": "node-crypto-cli -p $PASSWORD -a decrypt .env",
+    "semantic-release": "semantic-release",
+    "setup:all": "npm run setup:semantic-release && npm run setup:commitizen && npm run setup:update-package-json",
+    "setup:update-package-json": "sed -i .orig '3s/.*/  \"version\": \"0.0.0-semantically-released\",/' package.json",
+    "setup:commitizen": "commitizen init cz-conventional-changelog --save-dev --save-exact",
+    "setup:semantic-release": "semantic-release-cli setup",
+    "test": "npm run test:all",
+    "test:all": "jest --coverage",
+    "test:functional": "jest test/functional/**/*\\.spec\\.[jt]s",
+    "test:integration": "jest test/integration/**/*\\.spec\\.[jt]s",
+    "test:unit": "jest test/unit/**/*\\.spec\\.[jt]s",
+    "watch": "npm run bundle -- --watch.exclude \"node_modules/**\""
+  },
+  "keywords": [
+    "twilio",
+    "nodejs",
+    "bot",
+    "message",
+    "service"
+  ],
+  "author": "Spencer Pollock <spencer@spollock.ca>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@joseph184/rollup-plugin-node-builtins": "^2.1.4",
+    "@types/jest": "^26.0.4",
+    "dotenv": "^8.2.0",
+    "node-crypto-cli": "^0.1.0",
+    "rollup": "^2.21.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "twilio": "^3.48.0",
+    "typescript": "^3.9.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "devDependencies": {
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
+    "de-loggingsystem": "^1.1.1",
+    "git-cz": "^4.7.0",
+    "ts-jest": "^26.1.1"
+  },
+  "jest": {
+    "coverageDirectory": "coverage",
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "functions": 50,
+        "branches": 30,
+        "lines": 50,
+        "statements": 50
+      }
+    },
+    "preset": "ts-jest",
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ],
+    "modulePaths": [
+      "<rootDir>"
+    ],
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ]
+  },
+  "release": {
+    "plubins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator"
+    ]
+  }
+}
