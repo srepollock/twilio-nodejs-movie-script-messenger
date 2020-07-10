@@ -1,6 +1,6 @@
-# Pearl Beat 
+# movie-script-sms-messenger
 
-[A short project description goes here. Up to a paragraph but no more.]
+A way to send Movie Scripts to your friends 💻
 
 [![TypeScript](https://badges.frapsoft.com/typescript/version/typescript-next.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
 [![Open Source Love](https://badges.frapsoft.com/os/v2/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
