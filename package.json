@@ -42,7 +42,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@joseph184/rollup-plugin-node-builtins": "^2.1.4",
-    "@types/jest": "^26.0.4",
     "dotenv": "^8.2.0",
     "jest": "^26.1.0",
     "node-crypto-cli": "^0.1.0",
@@ -61,6 +60,7 @@
     }
   },
   "devDependencies": {
+    "@types/jest": "^26.0.4",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "^3.2.0",
     "de-loggingsystem": "^1.1.1",

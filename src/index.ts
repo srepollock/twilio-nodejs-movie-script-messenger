@@ -27,8 +27,8 @@ async function start() {
         // logger.log(LogLevel.info, "Sending message: \n\n" + messageArray[i]);
         promises.push(client.messages.create({
             body: messageArray[i],
-            to: process.env.TO_NUMBER,
-            from: process.env.FROM_NUMBER,
+            to: process.env.TO_NUMBER!,
+            from: process.env.FROM_NUMBER!,
         }).then((message: any) => console.log(message.sid)));
         let promise = new Promise((res, rej) => {
             setTimeout(() => res("Now it's done!"), 10000);
