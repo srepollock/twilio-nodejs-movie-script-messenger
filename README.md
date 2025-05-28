@@ -8,13 +8,14 @@ A way to send Movie Scripts to your friends 💻
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
 What things you need to install and run:
-* [nodejs](https://nodejs.org)
-* das it
+
+- [nodejs](https://nodejs.org)
+- das it
 
 ```bash
 # make sure you can run in the console
@@ -39,6 +40,7 @@ Run in the terminal:
 
 ```
 npm install
+npm run bundle
 node index.js
 ```
 
@@ -59,12 +61,12 @@ or
 
 ## Built With
 
-* [NodeJS](http://www.nodejs.com)
-* [Twilio](https://twilio.com)
+- [NodeJS](http://www.nodejs.com)
+- [Twilio](https://twilio.com)
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
 
 ## Authors
 
